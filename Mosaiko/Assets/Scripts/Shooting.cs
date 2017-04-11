@@ -62,6 +62,9 @@ public class Shooting : NetworkBehaviour
         {
             // shot has hit something
             this.RpcProcessShotEffects(shotHit, hit.point);
+
+            Shootable shotObj = hit.collider.GetComponent<Shootable>();
+            shotObj.Shot();
         }
         else
         {
