@@ -20,7 +20,7 @@ public class Shooting : NetworkBehaviour
     ShotEffectsManager shotEffectsManager;
 
     private float ellapsedTime;
-    private bool shotEnabled;
+    private bool  shotEnabled;
 
     // Use this for initialization
     void Start()
@@ -62,9 +62,12 @@ public class Shooting : NetworkBehaviour
         {
             // shot has hit something
             this.RpcProcessShotEffects(shotHit, hit.point);
-
-            Shootable shotObj = hit.collider.GetComponent<Shootable>();
-            shotObj.Shot();
+            
+			Shootable shotObj = hit.collider.GetComponent<Shootable>();
+			if (shotObj != null) 
+			{
+				shotObj.Shot();
+			}
         }
         else
         {
