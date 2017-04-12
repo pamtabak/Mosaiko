@@ -7,15 +7,14 @@ public class Shootable : NetworkBehaviour
 
     private MeshFilter meshFilter;
 
-	//private GameObject cube = null;
-
     public void Start()
     {
-//		cube = GameObject.CreatePrimitive (PrimitiveType.Cube);
-//		cube.AddComponent<Shootable> ();
-//		cube.transform.position = new Vector3 (-0.55F, 2.21F, -3.54F);
 		this.renderer = this.GetComponent<Renderer> ();
 		this.meshFilter = this.GetComponent<MeshFilter> ();
+
+		// Setting initial texture (grid`s border)
+		Texture2D tempTexture = (Texture2D)Resources.Load("Textures/Grid")as Texture2D;
+		this.renderer.material.mainTexture=tempTexture;
     }
 
     public void Shot()
