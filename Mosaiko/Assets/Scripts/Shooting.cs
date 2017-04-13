@@ -54,7 +54,7 @@ public class Shooting : NetworkBehaviour
         RaycastHit hit;
 
         Ray ray = new Ray(origin, direction);
-        Debug.DrawRay(ray.origin, ray.direction * 3f, Color.red, 5f);
+        Debug.DrawRay(ray.origin, ray.direction * 15f, Color.red, 5f);
 
         bool shotHit = Physics.Raycast(ray, out hit, this.weaponRange);
 
@@ -66,7 +66,7 @@ public class Shooting : NetworkBehaviour
 			Shootable shotObj = hit.collider.GetComponent<Shootable>();
 			if (shotObj != null) 
 			{
-				shotObj.Shot();
+				shotObj.RpcShot();
 			}
         }
         else

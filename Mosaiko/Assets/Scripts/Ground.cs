@@ -1,25 +1,31 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Ground : MonoBehaviour
+public class Ground : NetworkBehaviour
 {
 	void Start()
-	{	
-		GameObject groundObject = GameObject.FindGameObjectWithTag ("Wall");
-		Vector3 groundDimensions = groundObject.GetComponent<Collider> ().bounds.size;
+	{
+        this.CreateGrid();
+    }
 
-		float y = 0.016f;
-		for (int i = (int)-groundDimensions.z/2; i < (int)groundDimensions.z/2; i++) 
-		{
-			float x = (float) i;
-			for (int j = (int)-groundDimensions.z/2; j < (int)groundDimensions.z/2; j++) 
-			{
-				float z = (float)j;
-				Instantiate(Resources.Load("Prefabs/GridCell"), new Vector3(x,y,z), Quaternion.identity);
-			}
-		}
-		//Instantiate(Resources.Load("Prefabs/GridCell"), new Vector3(-10,0.016f,0), Quaternion.identity);
-		//Instantiate(Resources.Load("Prefabs/GridCell"), new Vector3(-5,0.016f,0), Quaternion.identity);
-	}
+    void CreateGrid()
+    {
+        Vector3 groundDimensions = this.GetComponent<Collider>().bounds.size;
+        Vector3 gridCenarioPosition = GameObject.FindGameObjectWithTag("GridCenario").transform.position;
+
+        float y = Mathf.Ceil(gridCenarioPosition.y * 100) / 100;
+        for (float i = -(groundDimensions.z / 2) - 1; i < (groundDimensions.z / 2) + 1; i++)
+        {
+            for (float j = -(groundDimensions.z / 2) - 1; j < (groundDimensions.z / 2) + 1; j++)
+            {
+                GameObject gridCell = (GameObject)Instantiate(Resources.Load("Prefabs/GridCell"), new Vector3(i, y, j), Quaternion.identity);
+                if (this.isServer)
+                {
+                    NetworkServer.Spawn(gridCell);
+                }
+            }
+        }
+    }
 }
 
