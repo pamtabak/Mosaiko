@@ -47,12 +47,12 @@ public class Shooting : NetworkBehaviour
 
             Player player = this.GetComponentInParent<Player>();
 
-            this.CmdShoot(this.firePosition.position, this.firePosition.forward, player.team);
+            this.CmdShoot(this.firePosition.position, this.firePosition.forward, player.teamId, player.teamColor);
         }
     }
 
     [Command]
-    void CmdShoot(Vector3 origin, Vector3 direction, Color color)
+    void CmdShoot(Vector3 origin, Vector3 direction, int teamId, Color teamColor)
     {
         RaycastHit hit;
 
@@ -64,18 +64,18 @@ public class Shooting : NetworkBehaviour
         if (shotHit)
         {
             // shot has hit something
-            this.RpcProcessShotEffects(shotHit, hit.point, color);
+            this.RpcProcessShotEffects(shotHit, hit.point, teamColor);
             
 			Shootable shotObj = hit.collider.GetComponent<Shootable>();
 			if (shotObj != null) 
 			{
-				shotObj.RpcShot(color);
+				shotObj.RpcShot(teamColor);
 			}
         }
         else
         {
             // shot has not hit something
-            this.RpcProcessShotEffects(shotHit, ray.origin + (ray.direction * this.weaponRange), color);
+            this.RpcProcessShotEffects(shotHit, ray.origin + (ray.direction * this.weaponRange), teamColor);
         }
     }
 

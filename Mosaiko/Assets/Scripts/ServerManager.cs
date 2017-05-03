@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking;
+using Assets.Scripts.Utils;
 
 public class ServerManager : NetworkManager
 {
@@ -12,12 +13,14 @@ public class ServerManager : NetworkManager
         if (this.numPlayers % 2 == 0)
         {
             // add player to team one
-            player.GetComponent<Player>().team = Color.blue;
+            player.GetComponent<Player>().teamId = 1;
+            player.GetComponent<Player>().teamColor = TeamColors.TEAM_ONE_COLOR;
         }
         else
         {
             // add player to team two
-            player.GetComponent<Player>().team = Color.red;
+            player.GetComponent<Player>().teamId = 1;
+            player.GetComponent<Player>().teamColor = TeamColors.TEAM_TWO_COLOR;
         }
 
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);

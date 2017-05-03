@@ -17,7 +17,10 @@ public class Player : NetworkBehaviour
     GameObject mainCamera;
 
     [SyncVar]
-    public Color team;
+    public int teamId;
+
+    [SyncVar]
+    public Color teamColor;
 
     // Use this for initialization
     void Start()
