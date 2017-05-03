@@ -7,6 +7,9 @@ public class Shootable : NetworkBehaviour
 
     private MeshFilter meshFilter;
 
+    [SyncVar]
+    public int teamId;
+
     public void Start()
     {
 		this.renderer = this.GetComponent<Renderer> ();
@@ -18,8 +21,9 @@ public class Shootable : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void RpcShot(Color color)
+    public void RpcShot(int teamId, Color color)
     {
+        this.teamId = teamId;
         this.renderer.material.color = color;
     }
 }

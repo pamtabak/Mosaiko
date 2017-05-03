@@ -19,7 +19,7 @@ public class ServerManager : NetworkManager
         else
         {
             // add player to team two
-            player.GetComponent<Player>().teamId = 1;
+            player.GetComponent<Player>().teamId = 2;
             player.GetComponent<Player>().teamColor = TeamColors.TEAM_TWO_COLOR;
         }
 

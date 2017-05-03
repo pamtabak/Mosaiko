@@ -19,6 +19,8 @@ public class Shooting : NetworkBehaviour
     [SerializeField]
     ShotEffectsManager shotEffectsManager;
 
+    private GameplayManager gameplayManager;
+
     private float ellapsedTime;
     private bool  shotEnabled;
 
@@ -29,6 +31,8 @@ public class Shooting : NetworkBehaviour
         {
             this.shotEnabled = true;
         }
+
+        this.gameplayManager = GameObject.FindGameObjectWithTag("GameplayManager").GetComponent<GameplayManager>();
     }
 
     // Update is called once per frame
@@ -69,7 +73,8 @@ public class Shooting : NetworkBehaviour
 			Shootable shotObj = hit.collider.GetComponent<Shootable>();
 			if (shotObj != null) 
 			{
-				shotObj.RpcShot(teamColor);
+                this.gameplayManager.Score(shotObj.teamId, teamId);
+				shotObj.RpcShot(teamId, teamColor);
 			}
         }
         else
