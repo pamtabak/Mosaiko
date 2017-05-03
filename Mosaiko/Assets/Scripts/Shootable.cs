@@ -18,15 +18,9 @@ public class Shootable : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void RpcShot()
+    public void RpcShot(Color color)
     {
-        //Debug.Log ("shot");
-        //var mesh = this.meshFilter.mesh;
-        //Debug.Log(mesh.name + " has " + mesh.subMeshCount + " submeshes!");
-
-        this.renderer.material.color = Color.red;
-
-        //var v = this.meshFilter.mesh.vertices;
+        this.renderer.material.color = color;
     }
 }
 

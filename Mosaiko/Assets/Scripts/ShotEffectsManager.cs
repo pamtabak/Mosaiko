@@ -12,10 +12,11 @@ public class ShotEffectsManager : MonoBehaviour
     [SerializeField]
     float shotDuration = .07f;
 
-    public void PlayShotEffects(Vector3 origin, Vector3 point)
+    public void PlayShotEffects(Vector3 origin, Vector3 point, Color color)
     {
         this.laserShot.SetPosition(0, origin);
         this.laserShot.SetPosition(1, point);
+        this.laserShot.material.color = color;
 
         this.StartCoroutine(this.ShotEffect());
     }

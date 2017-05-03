@@ -44,12 +44,15 @@ public class Shooting : NetworkBehaviour
         if (Input.GetButtonDown("Fire1") && this.ellapsedTime > this.fireRate)
         {
             this.ellapsedTime = 0f;
-            this.CmdShoot(this.firePosition.position, this.firePosition.forward);
+
+            Player player = this.GetComponentInParent<Player>();
+
+            this.CmdShoot(this.firePosition.position, this.firePosition.forward, player.team);
         }
     }
 
     [Command]
-    void CmdShoot(Vector3 origin, Vector3 direction)
+    void CmdShoot(Vector3 origin, Vector3 direction, Color color)
     {
         RaycastHit hit;
 
@@ -61,24 +64,24 @@ public class Shooting : NetworkBehaviour
         if (shotHit)
         {
             // shot has hit something
-            this.RpcProcessShotEffects(shotHit, hit.point);
+            this.RpcProcessShotEffects(shotHit, hit.point, color);
             
 			Shootable shotObj = hit.collider.GetComponent<Shootable>();
 			if (shotObj != null) 
 			{
-				shotObj.RpcShot();
+				shotObj.RpcShot(color);
 			}
         }
         else
         {
             // shot has not hit something
-            this.RpcProcessShotEffects(shotHit, ray.origin + (ray.direction * this.weaponRange));
+            this.RpcProcessShotEffects(shotHit, ray.origin + (ray.direction * this.weaponRange), color);
         }
     }
 
     [ClientRpc]
-    void RpcProcessShotEffects(bool shotHit, Vector3 point)
+    void RpcProcessShotEffects(bool shotHit, Vector3 point, Color color)
     {
-        this.shotEffectsManager.PlayShotEffects(this.weaponEnd.position, point);
+        this.shotEffectsManager.PlayShotEffects(this.weaponEnd.position, point, color);
     }
 }
