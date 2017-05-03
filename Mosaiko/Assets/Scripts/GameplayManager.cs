@@ -6,10 +6,10 @@ using UnityEngine.Networking;
 public class GameplayManager : NetworkBehaviour
 {
     [SyncVar]
-    int teamOneScore;
+    public int teamOneScore;
 
     [SyncVar]
-    int teamTwoScore;
+    public int teamTwoScore;
 
     public void Score(int oldTeamId, int newTeamId)
     {
