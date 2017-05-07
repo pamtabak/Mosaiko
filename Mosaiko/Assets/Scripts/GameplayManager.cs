@@ -41,7 +41,7 @@ public class GameplayManager : NetworkBehaviour
             }
         }
 
-        Debug.Log(teamOneScore);
-        Debug.Log(teamTwoScore);
+        Debug.Log("TEAM ONE: " + teamOneScore);
+        Debug.Log("TEAM TWO: " + teamTwoScore);
     }
 }
