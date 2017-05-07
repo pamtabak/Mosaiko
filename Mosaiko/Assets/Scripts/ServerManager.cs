@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking;
 using Assets.Scripts.Utils;
+using UnityEngine.Networking.Match;
 
 public class ServerManager : NetworkManager
 {
+    private GameplayManager gameplayManager;
+
     public override void OnServerAddPlayer(NetworkConnection conn, short playerControllerId)
     {
         GameObject player = (GameObject)GameObject.Instantiate(playerPrefab, this.GetSpawnPoint(), Quaternion.identity);
@@ -24,6 +27,13 @@ public class ServerManager : NetworkManager
         }
 
         NetworkServer.AddPlayerForConnection(conn, player, playerControllerId);
+    }
+
+    public override void OnServerConnect(NetworkConnection conn)
+    {
+        base.OnServerConnect(conn);
+        this.gameplayManager = GameObject.FindGameObjectWithTag("GameplayManager").GetComponent<GameplayManager>();
+        this.gameplayManager.StartTimer();
     }
 
     private Vector3 GetSpawnPoint()

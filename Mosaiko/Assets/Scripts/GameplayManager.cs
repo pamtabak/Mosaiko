@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -10,6 +11,10 @@ public class GameplayManager : NetworkBehaviour
 
     [SyncVar]
     public int teamTwoScore;
+
+    [SyncVar]
+    public int timer;
+    private bool timeAlreadyStarted = false;
 
     public void Score(int oldTeamId, int newTeamId)
     {
@@ -43,5 +48,22 @@ public class GameplayManager : NetworkBehaviour
 
         Debug.Log("TEAM ONE: " + teamOneScore);
         Debug.Log("TEAM TWO: " + teamTwoScore);
+    }
+
+    public void StartTimer()
+    {
+        this.timer = 150;
+        if (this.timeAlreadyStarted)
+        {
+            CancelInvoke("CmdUpdateTime");
+        }
+        InvokeRepeating("CmdUpdateTimer", 0.0f, 1.0f);
+        this.timeAlreadyStarted = true;
+    }
+
+    [Command]
+    public void CmdUpdateTimer()
+    {
+        this.timer--;
     }
 }
