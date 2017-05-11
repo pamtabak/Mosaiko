@@ -64,6 +64,32 @@ public class GameplayManager : NetworkBehaviour
     [Command]
     public void CmdUpdateTimer()
     {
-        this.timer--;
+        if (this.timer != 0)
+        {
+            this.timer--;
+        }
+        else
+        {
+            RpcGameOver (netId);
+        }
+    }
+
+    [ClientRpc]
+    public void RpcGameOver (NetworkInstanceId networkId)
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible   = true;
+
+        if (isLocalPlayer)
+        {
+            if (netId == networkId)
+            {
+                // you won
+            }
+            else
+            {
+                // you lost
+            }
+        }
     }
 }
