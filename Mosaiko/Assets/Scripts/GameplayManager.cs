@@ -16,6 +16,7 @@ public class GameplayManager : NetworkBehaviour
     public int timer;
     private bool timeAlreadyStarted = false;
 
+    [Server]
     public void Score(int oldTeamId, int newTeamId)
     {
         if (oldTeamId != newTeamId)
