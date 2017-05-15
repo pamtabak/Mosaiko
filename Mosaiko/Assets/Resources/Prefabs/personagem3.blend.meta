@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 6b94000cebd33f04aac1f6c0b07414ff
-timeCreated: 1494818966
+guid: 49abb5edfa558434483056538046b82f
+timeCreated: 1494817059
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -83,12 +83,10 @@ ModelImporter:
     100150: personagem
     100152: //RootNode
     100154: personagem_001
-    100156: Sphere
-    100158: Sphere_001
-    100160: Torus
-    100162: Torus_001
-    100164: Torus_002
-    100166: Torus_003
+    100156: Torus
+    100158: Torus_001
+    100160: Torus_002
+    100162: Torus_003
     400000: Armature
     400002: Bone_002
     400004: Bone_002_L
@@ -167,52 +165,56 @@ ModelImporter:
     400150: personagem
     400152: //RootNode
     400154: personagem_001
-    400156: Sphere
-    400158: Sphere_001
-    400160: Torus
-    400162: Torus_001
-    400164: Torus_002
-    400166: Torus_003
-    2300000: Sphere
-    2300002: Sphere_001
-    3300000: Sphere
-    3300002: Sphere_001
-    4300000: Sphere_001
-    4300002: Sphere
-    4300004: personagem
-    4300006: Torus_003
-    4300008: Torus_002
-    4300010: Cone_001
-    4300012: Cube_001
-    4300014: Cube_005
-    4300016: Cube_004
-    4300018: Cube_003
-    4300020: Cube_002
-    4300022: Cube
-    4300024: personagem_001
-    4300026: colete
-    4300028: Cone
-    4300030: Torus_001
-    4300032: Torus
-    6400000: Sphere
-    6400002: Sphere_001
+    400156: Torus
+    400158: Torus_001
+    400160: Torus_002
+    400162: Torus_003
+    2300000: colete
+    2300002: Cone
+    2300004: Cone_001
+    2300006: Cube
+    2300008: Cube_001
+    2300010: Cube_002
+    2300012: Cube_003
+    2300014: Cube_004
+    2300016: Cube_005
+    2300018: personagem_001
+    2300020: Torus
+    2300022: Torus_001
+    2300024: Torus_002
+    2300026: Torus_003
+    3300000: colete
+    3300002: Cone
+    3300004: Cone_001
+    3300006: Cube
+    3300008: Cube_001
+    3300010: Cube_002
+    3300012: Cube_003
+    3300014: Cube_004
+    3300016: Cube_005
+    3300018: personagem_001
+    3300020: Torus
+    3300022: Torus_001
+    3300024: Torus_002
+    3300026: Torus_003
+    4300000: personagem
+    4300002: Torus_003
+    4300004: Torus_002
+    4300006: Cone_001
+    4300008: Cube_001
+    4300010: Cube_005
+    4300012: Cube_004
+    4300014: Cube_003
+    4300016: Cube_002
+    4300018: Cube
+    4300020: personagem_001
+    4300022: colete
+    4300024: Cone
+    4300026: Torus_001
+    4300028: Torus
     7400000: Default Take
     9500000: //RootNode
-    13700000: colete
-    13700002: Cone
-    13700004: Cone_001
-    13700006: Cube
-    13700008: Cube_001
-    13700010: Cube_002
-    13700012: Cube_003
-    13700014: Cube_004
-    13700016: Cube_005
-    13700018: personagem
-    13700020: personagem_001
-    13700022: Torus
-    13700024: Torus_001
-    13700026: Torus_002
-    13700028: Torus_003
+    13700000: personagem
   materials:
     importMaterials: 1
     materialName: 0
@@ -239,7 +241,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -269,7 +271,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Bone_005_L
+    - boneName: Bone_005_L_001
       humanName: LeftUpperLeg
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -277,7 +279,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Bone_005_R
+    - boneName: Bone_005_R_001
       humanName: RightUpperLeg
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -301,7 +303,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Bone_005_L_004
+    - boneName: Bone_005_L_003
       humanName: LeftFoot
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -309,7 +311,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Bone_005_R_004
+    - boneName: Bone_005_R_003
       humanName: RightFoot
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -327,14 +329,6 @@ ModelImporter:
         modified: 0
     - boneName: Bone_003
       humanName: Neck
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_004
-      humanName: Head
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
@@ -381,16 +375,24 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Bone_002_R_002
-      humanName: RightLowerArm
+    - boneName: Bone_002_L_003
+      humanName: LeftHand
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Bone_002_L_003
-      humanName: LeftHand
+    - boneName: Bone_004
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone_002_R_002
+      humanName: RightLowerArm
       limit:
         min: {x: 0, y: 0, z: 0}
         max: {x: 0, y: 0, z: 0}
@@ -405,215 +407,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Bone_005_L_006
-      humanName: LeftToes
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_005_R_006
-      humanName: RightToes
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_R_014
-      humanName: Right Middle Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_R_015
-      humanName: Right Middle Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_R_016
-      humanName: Right Middle Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_R_017
-      humanName: Right Ring Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_R_018
-      humanName: Right Ring Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_R_019
-      humanName: Right Ring Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_R_020
-      humanName: Right Little Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_R_021
-      humanName: Right Little Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_R_022
-      humanName: Right Little Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_R_011
-      humanName: Right Index Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_R_012
-      humanName: Right Index Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_R_013
-      humanName: Right Index Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_L_012
-      humanName: Left Index Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_L_013
-      humanName: Left Index Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_L_011
-      humanName: Left Index Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_L_014
-      humanName: Left Middle Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_L_017
-      humanName: Left Ring Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_L_020
-      humanName: Left Little Proximal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_L_015
-      humanName: Left Middle Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_L_016
-      humanName: Left Middle Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_L_018
-      humanName: Left Ring Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_L_019
-      humanName: Left Ring Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_L_021
-      humanName: Left Little Intermediate
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_L_022
-      humanName: Left Little Distal
-      limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
-        value: {x: 0, y: 0, z: 0}
-        length: 0
-        modified: 0
-    - boneName: Bone_002_L_009
+    - boneName: Bone_002_L_008
       humanName: Left Thumb Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -621,7 +415,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Bone_002_L_010
+    - boneName: Bone_002_L_009
       humanName: Left Thumb Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -629,7 +423,15 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Bone_002_R_009
+    - boneName: Bone_002_L_010
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bone_002_R_008
       humanName: Right Thumb Proximal
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -637,7 +439,7 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
-    - boneName: Bone_002_R_010
+    - boneName: Bone_002_R_009
       humanName: Right Thumb Intermediate
       limit:
         min: {x: 0, y: 0, z: 0}
@@ -645,14 +447,22 @@ ModelImporter:
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 0
+    - boneName: Bone_002_R_010
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
     skeleton:
-    - name: personagem2(Clone)
+    - name: personagem3(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Armature
-      parentName: personagem2(Clone)
+      parentName: personagem3(Clone)
       position: {x: 1.9564763, y: -1.5423155, z: 0.098772585}
       rotation: {x: 0.99999636, y: -0, z: 0, w: 0.0027092306}
       scale: {x: 1.5460638, y: 1.546064, z: 1.546064}
@@ -661,16 +471,6 @@ ModelImporter:
       position: {x: 0.050408892, y: -0.4497025, z: 0.008453598}
       rotation: {x: 0.08334265, y: 0.05642485, z: 0.7066042, w: 0.7004147}
       scale: {x: 1.0000002, y: 1.0000024, z: 1.0001452}
-    - name: Bone_003
-      parentName: Bone_002
-      position: {x: -0.62258756, y: 0.000000049360096, z: 0.000000006519258}
-      rotation: {x: -0.0949578, y: 0.017829722, z: -0.0036353562, w: 0.995315}
-      scale: {x: 1, y: 1, z: 1.0000001}
-    - name: Bone_004
-      parentName: Bone_003
-      position: {x: -0.55548054, y: 0.000000033396645, z: -3.7835e-10}
-      rotation: {x: -0.003980991, y: -0.021731526, z: 0.007052765, w: 0.99973106}
-      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
     - name: Bone_002_L
       parentName: Bone_002
       position: {x: -0.62258756, y: 0.000000049360096, z: 0.000000006519258}
@@ -901,15 +701,20 @@ ModelImporter:
       position: {x: -0.12576821, y: 9.67702e-10, z: 0.00000000372529}
       rotation: {x: -0.011837552, y: 0.06715972, z: -0.0785669, w: 0.99457365}
       scale: {x: 0.9999998, y: 1, z: 0.99999994}
+    - name: Bone_003
+      parentName: Bone_002
+      position: {x: -0.62258756, y: 0.000000049360096, z: 0.000000006519258}
+      rotation: {x: -0.0949578, y: 0.017829722, z: -0.0036353562, w: 0.995315}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: Bone_004
+      parentName: Bone_003
+      position: {x: -0.55548054, y: 0.000000033396645, z: -3.7835e-10}
+      rotation: {x: -0.003980991, y: -0.021731526, z: 0.007052765, w: 0.99973106}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
     - name: Bone_005
       parentName: Armature
       position: {x: 0.050408892, y: -0.4497025, z: 0.008453598}
       rotation: {x: 0.0019157139, y: 0.0019157138, z: -0.7071042, w: 0.7071042}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Bone_006
-      parentName: Bone_005
-      position: {x: -0.6092968, y: 0.000000041855316, z: 5.8208e-11}
-      rotation: {x: 0.7071068, y: 0.00000216561, z: -0.7071067, w: 0.0000021656103}
       scale: {x: 1, y: 1, z: 1}
     - name: Bone_005_L
       parentName: Bone_005
@@ -929,7 +734,7 @@ ModelImporter:
     - name: Bone_005_L_003
       parentName: Bone_005_L_002
       position: {x: -1.2426012, y: 0.000000105605295, z: -1.34516e-10}
-      rotation: {x: 0.7070929, y: 0.004444744, z: -0.70709276, w: 0.0044447444}
+      rotation: {x: 0.70709294, y: 0.0044447444, z: -0.7070928, w: 0.004444745}
       scale: {x: 1, y: 1, z: 0.99999994}
     - name: Bone_005_L_005
       parentName: Bone_005_L_003
@@ -964,7 +769,7 @@ ModelImporter:
     - name: Bone_005_R_003
       parentName: Bone_005_R_002
       position: {x: -1.2426015, y: 0.00000007881624, z: -0.000000002880945}
-      rotation: {x: 0.7070929, y: -0.004444838, z: -0.70709276, w: -0.004444839}
+      rotation: {x: 0.70709294, y: -0.0044448385, z: -0.7070928, w: -0.0044448394}
       scale: {x: 0.99999976, y: 1, z: 0.99999994}
     - name: Bone_005_R_005
       parentName: Bone_005_R_003
@@ -981,91 +786,86 @@ ModelImporter:
       position: {x: -0.5162932, y: 0.000000048664162, z: 0.0000001975418}
       rotation: {x: 0.00000071525614, y: -0.00000040512563, z: -8.756175e-11, w: 1}
       scale: {x: 0.99999994, y: 1, z: 1}
+    - name: Bone_006
+      parentName: Bone_005
+      position: {x: -0.6092968, y: 0.000000041855316, z: 5.8208e-11}
+      rotation: {x: 0.7071068, y: 0.00000216561, z: -0.7071067, w: 0.0000021656103}
+      scale: {x: 1, y: 1, z: 1}
     - name: colete
-      parentName: personagem2(Clone)
-      position: {x: 0.050418973, y: -2.5086236, z: -0.3950872}
-      rotation: {x: 0.7090199, y: -0.0000000020418427, z: -1.5381916e-17, w: 0.70518845}
-      scale: {x: 0.73576874, y: 0.34254983, z: 0.7357685}
+      parentName: personagem3(Clone)
+      position: {x: 2.034427, y: 2.3394308, z: 0.68857825}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1.1375453, y: 0.529604, z: 1.1375453}
     - name: Cone
-      parentName: personagem2(Clone)
-      position: {x: -1.6783996, y: -1.0996125, z: -0.031103127}
-      rotation: {x: 0.502822, y: -0.49717805, z: -0.4998793, w: 0.5001047}
-      scale: {x: 0.5882102, y: 0.5882102, z: 0.58821034}
+      parentName: personagem3(Clone)
+      position: {x: -0.63843673, y: 0.15799174, z: 0.1376475}
+      rotation: {x: -0.5014652, y: -0.49853048, z: 0.49853048, w: 0.5014652}
+      scale: {x: 0.9094107, y: 0.9094107, z: 0.9094107}
     - name: Cone_001
-      parentName: personagem2(Clone)
-      position: {x: 1.744234, y: -1.1053461, z: -0.02711395}
-      rotation: {x: 0.49717805, y: 0.50282204, z: -0.5001048, w: -0.4998792}
-      scale: {x: -0.5882102, y: -0.5882102, z: -0.58821034}
+      parentName: personagem3(Clone)
+      position: {x: 4.653173, y: 0.16682263, z: 0.13143206}
+      rotation: {x: -0.5014652, y: -0.49853048, z: 0.49853048, w: 0.5014652}
+      scale: {x: -0.9094107, y: -0.9094107, z: -0.9094107}
     - name: Cube
-      parentName: personagem2(Clone)
-      position: {x: -2.1969502, y: -1.1299012, z: -0.022808265}
-      rotation: {x: 0.0078044343, y: -0.0000000014399282, z: -1.29084e-18, w: 0.99996954}
-      scale: {x: 0.16513963, y: 0.177652, z: 0.0614708}
+      parentName: personagem3(Clone)
+      position: {x: -1.440149, y: 0.20474982, z: 0.12456955}
+      rotation: {x: 0.999987, y: 0, z: 0, w: -0.0050951377}
+      scale: {x: 0.2553164, y: 0.27466136, z: 0.0950378}
     - name: Cube_001
-      parentName: personagem2(Clone)
-      position: {x: 2.2627845, y: -1.1356347, z: -0.01881906}
-      rotation: {x: 0.99996954, y: -6.489937e-17, z: 0.0000000014399282, w: -0.00780439}
-      scale: {x: -0.16513963, y: -0.177652, z: -0.061470795}
+      parentName: personagem3(Clone)
+      position: {x: 5.4548855, y: 0.21358068, z: 0.118354075}
+      rotation: {x: 0.0050963634, y: 0, z: 0, w: 0.999987}
+      scale: {x: -0.2553164, y: -0.27466136, z: -0.09503779}
     - name: Cube_002
-      parentName: personagem2(Clone)
-      position: {x: -0.22163665, y: 2.4437175, z: -0.21034579}
-      rotation: {x: 0.7090199, y: -0.000000002041843, z: -8.358662e-18, w: 0.70518845}
-      scale: {x: 0.23460035, y: 0.4240741, z: 0.15543765}
+      parentName: personagem3(Clone)
+      position: {x: 1.6138116, y: -5.3186417, z: 0.44444767}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.3627071, y: 0.6556458, z: 0.24031658}
     - name: Cube_003
-      parentName: personagem2(Clone)
-      position: {x: -0.2175585, y: 2.4307833, z: -0.21160696}
-      rotation: {x: 0.7090199, y: -0.0000000020418427, z: -1.5381916e-17, w: 0.70518845}
-      scale: {x: 0.25893325, y: 0.42853144, z: 0.17155972}
+      parentName: personagem3(Clone)
+      position: {x: 1.6201167, y: -5.298634, z: 0.44628918}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.4003273, y: 0.6625371, z: 0.26524234}
     - name: Cube_004
-      parentName: personagem2(Clone)
-      position: {x: 0.31559706, y: 2.441406, z: -0.17852886}
-      rotation: {x: 0.7090199, y: -0.0000000020418427, z: -1.5381916e-17, w: 0.70518845}
-      scale: {x: 0.25893325, y: 0.42853144, z: 0.17155972}
+      parentName: personagem3(Clone)
+      position: {x: 2.4444094, y: -5.3153343, z: 0.395238}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.4003273, y: 0.6625371, z: 0.26524234}
     - name: Cube_005
-      parentName: personagem2(Clone)
-      position: {x: 0.31151915, y: 2.4543405, z: -0.17726763}
-      rotation: {x: 0.7090199, y: -0.000000002041843, z: -8.358662e-18, w: 0.70518845}
-      scale: {x: 0.23460035, y: 0.4240741, z: 0.15543765}
+      parentName: personagem3(Clone)
+      position: {x: 2.4381044, y: -5.335342, z: 0.3933965}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 0.3627071, y: 0.6556458, z: 0.24031658}
     - name: personagem
-      parentName: personagem2(Clone)
+      parentName: personagem3(Clone)
       position: {x: 0.04371059, y: -2.3702714, z: -0.3494243}
       rotation: {x: 0.7090199, y: -0.000000002041843, z: -8.358662e-18, w: 0.70518845}
       scale: {x: 0.6841615, y: 0.3051771, z: 0.68416125}
     - name: personagem_001
-      parentName: personagem2(Clone)
-      position: {x: 0.056391597, y: -2.040615, z: -0.20787174}
-      rotation: {x: 0.6598476, y: -0.0000000019162698, z: -4.1524966e-17, w: 0.75139946}
-      scale: {x: 0.7141317, y: 0.278324, z: 0.5250979}
-    - name: Sphere
-      parentName: personagem2(Clone)
-      position: {x: 0.3570873, y: 2.8680177, z: -0.23727983}
-      rotation: {x: -0.41730466, y: -0.57083875, z: -0.40506902, w: 0.57958525}
-      scale: {x: 0.7982448, y: 0.7982447, z: 0.7982446}
-    - name: Sphere_001
-      parentName: personagem2(Clone)
-      position: {x: 3.5912962, y: 2.8680177, z: -0.23727983}
-      rotation: {x: 0.56544495, y: 0.41921636, z: -0.5736942, w: 0.41881332}
-      scale: {x: -0.7982448, y: -0.7982447, z: -0.79824454}
+      parentName: personagem3(Clone)
+      position: {x: 2.0436609, y: 1.6143017, z: 0.40305603}
+      rotation: {x: -0.7531844, y: 0, z: -0, w: 0.65780944}
+      scale: {x: 1.1040932, y: 0.4303068, z: 0.81183505}
     - name: Torus
-      parentName: personagem2(Clone)
-      position: {x: -2.0071898, y: -1.099159, z: -0.037967324}
-      rotation: {x: 0.5183077, y: -0.48118964, z: -0.483804, w: 0.5155069}
-      scale: {x: 0.15144064, y: 0.15144065, z: 0.15144067}
+      parentName: personagem3(Clone)
+      position: {x: -1.1467675, y: 0.15734823, z: 0.14826363}
+      rotation: {x: -0.51690924, y: -0.48249856, z: 0.4824986, w: 0.5169092}
+      scale: {x: 0.23413692, y: 0.23413697, z: 0.23413692}
     - name: Torus_001
-      parentName: personagem2(Clone)
-      position: {x: -1.3118358, y: -1.0974091, z: -0.030635146}
-      rotation: {x: 0.51830775, y: -0.4811896, z: -0.48380396, w: 0.5155069}
-      scale: {x: 0.23143108, y: 0.23143111, z: 0.23143113}
+      parentName: personagem3(Clone)
+      position: {x: -0.07170564, y: 0.15458131, z: 0.13694243}
+      rotation: {x: -0.51690924, y: -0.48249856, z: 0.4824986, w: 0.5169092}
+      scale: {x: 0.35780728, y: 0.35780734, z: 0.35780728}
     - name: Torus_002
-      parentName: personagem2(Clone)
-      position: {x: 1.3776702, y: -1.1031426, z: -0.026645962}
-      rotation: {x: 0.4811896, y: 0.5183078, z: -0.5155069, w: -0.4838039}
-      scale: {x: -0.23143108, y: -0.23143108, z: -0.23143113}
+      parentName: personagem3(Clone)
+      position: {x: 4.086442, y: 0.16341217, z: 0.130727}
+      rotation: {x: -0.51690924, y: -0.48249856, z: 0.4824986, w: 0.5169092}
+      scale: {x: -0.35780728, y: -0.3578073, z: -0.35780728}
     - name: Torus_003
-      parentName: personagem2(Clone)
-      position: {x: 2.0730243, y: -1.1048926, z: -0.033978134}
-      rotation: {x: 0.4811896, y: 0.51830786, z: -0.51550686, w: -0.48380387}
-      scale: {x: -0.15144064, y: -0.15144065, z: -0.15144067}
+      parentName: personagem3(Clone)
+      position: {x: 5.161504, y: 0.16617908, z: 0.14204818}
+      rotation: {x: -0.51690924, y: -0.48249856, z: 0.4824986, w: 0.5169092}
+      scale: {x: -0.23413692, y: -0.23413697, z: -0.23413692}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
