@@ -13,7 +13,7 @@ public class GameplayManager : NetworkBehaviour
     public int teamTwoScore;
 
     [SyncVar]
-    public int timer;
+    public int timer = -1;
     private bool timeAlreadyStarted = false;
 
     [Server]
@@ -47,16 +47,16 @@ public class GameplayManager : NetworkBehaviour
             }
         }
 
-        Debug.Log("TEAM ONE: " + teamOneScore);
-        Debug.Log("TEAM TWO: " + teamTwoScore);
+        Debug.Log("TEAM ONE: " + teamOneScore + " | TEAM TWO: " + teamTwoScore);
     }
 
+    [Server]
     public void StartTimer()
     {
         this.timer = 150;
         if (this.timeAlreadyStarted)
         {
-            CancelInvoke("CmdUpdateTime");
+            CancelInvoke("CmdUpdateTimer");
         }
         InvokeRepeating("CmdUpdateTimer", 0.0f, 1.0f);
         this.timeAlreadyStarted = true;
