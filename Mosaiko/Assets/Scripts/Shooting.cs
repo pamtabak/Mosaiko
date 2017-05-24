@@ -19,6 +19,9 @@ public class Shooting : NetworkBehaviour
     [SerializeField]
     ShotEffectsManager shotEffectsManager;
 
+	[SerializeField]
+	int ammo = 10;
+
     private GameplayManager gameplayManager;
 
     private float ellapsedTime;
@@ -58,6 +61,13 @@ public class Shooting : NetworkBehaviour
     [Command]
     void CmdShoot(Vector3 origin, Vector3 direction, int teamId, Color teamColor)
     {
+		if (this.ammo == 0) 
+		{
+			return;
+		}
+
+		this.ammo--;
+
         RaycastHit hit;
 
         Ray ray = new Ray(origin, direction);

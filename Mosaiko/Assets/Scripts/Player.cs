@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 
 using Assets.Scripts.Utils;
@@ -65,4 +66,31 @@ public class Player : NetworkBehaviour
             this.onToggleRemote.Invoke(true);
         }
     }
+
+	[ClientRpc]
+	public void RpcGameOver (int winnerTeam)
+	{
+		Debug.Log ("GameOver");
+
+		this.DisablePlayer ();
+
+		GameObject gameOverObject = GameObject.FindGameObjectWithTag ("GameOver");
+		Text       text           = (Text) gameOverObject.GetComponent<Text> ();
+
+		if (winnerTeam == 0) 
+		{
+			// it`s a tie
+			text.text  = "tie";
+		}
+		else if (winnerTeam == teamId) 
+		{
+			// you win
+			text.text  = "you win";
+		} 
+		else 
+		{
+			// you lose
+			text.text  = "you lose";
+		}
+	}
 }

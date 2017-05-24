@@ -63,7 +63,7 @@ public class GameplayManager : NetworkBehaviour
     }
 
     [Command]
-    public void CmdUpdateTimer()
+    public void CmdUpdateTimer ()
     {
         if (this.timer != 0)
         {
@@ -71,26 +71,24 @@ public class GameplayManager : NetworkBehaviour
         }
         else
         {
-            RpcGameOver (netId);
-        }
-    }
+			// Checking who won
+			int winnerTeam = 0;
+			if (teamOneScore > teamTwoScore) 
+			{
+				winnerTeam = 1;
+			} 
+			else if (teamOneScore < teamTwoScore) 
+			{
+				winnerTeam = 2;
+			}
 
-    [ClientRpc]
-    public void RpcGameOver (NetworkInstanceId networkId)
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible   = true;
-
-        if (isLocalPlayer)
-        {
-            if (netId == networkId)
-            {
-                // you won
-            }
-            else
-            {
-                // you lost
-            }
+			GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
+			foreach (GameObject player in players) 
+			{
+				Player p = (Player) player.GetComponent<Player>();
+				p.RpcGameOver (winnerTeam);
+			}
+			CancelInvoke("CmdUpdateTimer");
         }
     }
 }
