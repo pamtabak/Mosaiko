@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class Shooting : NetworkBehaviour
 {
     [SerializeField]
-    float fireRate = .3f;
+    float fireRate = .2f;
+
+    [SerializeField]
+    float reloadDelay = 2.2f;
 
     [SerializeField]
     float weaponRange = 50f;
@@ -19,13 +23,28 @@ public class Shooting : NetworkBehaviour
     [SerializeField]
     ShotEffectsManager shotEffectsManager;
 
-	[SerializeField]
-	int ammo = 10;
+    [SerializeField]
+    int maxAmmo = 30;
+
+    [SerializeField]
+    int maxReloadAmmo = 60;
+
+    [SerializeField]
+    AudioSource cantShotAudio;
+
+    [SerializeField]
+    AudioSource reloadAudio;
 
     private GameplayManager gameplayManager;
 
+    private Text ammoUI;
+
     private float ellapsedTime;
-    private bool  shotEnabled;
+    private bool shotEnabled;
+
+    private int reloadAmmo;
+    private int ammo;
+    private bool reloading;
 
     // Use this for initialization
     void Start()
@@ -33,9 +52,14 @@ public class Shooting : NetworkBehaviour
         if (this.isLocalPlayer)
         {
             this.shotEnabled = true;
+
+            this.ammo = this.maxAmmo;
+            this.reloadAmmo = this.maxReloadAmmo;
         }
 
         this.gameplayManager = GameObject.FindGameObjectWithTag("GameplayManager").GetComponent<GameplayManager>();
+
+        this.ammoUI = GameObject.FindGameObjectWithTag("Ammo").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -56,17 +80,40 @@ public class Shooting : NetworkBehaviour
 
             this.CmdShoot(this.firePosition.position, this.firePosition.forward, player.teamId, player.teamColor);
         }
+
+        if (Input.GetKeyDown(KeyCode.R) && !this.reloading && this.ammo < this.maxAmmo)
+        {
+            this.reloading = true;
+            this.shotEnabled = false;
+
+
+            if (this.reloadAmmo > 0)
+            {
+                this.reloadAudio.Play();
+                this.Invoke("ReloadWeapon", this.reloadDelay);
+            }
+            else
+            {
+                this.cantShotAudio.Play();
+                this.reloading = false;
+                this.shotEnabled = true;
+            }
+        }
+
+        // refreshes ammoUI
+        this.ammoUI.text = string.Format("{0}/{1}", this.ammo, this.reloadAmmo);
     }
 
     [Command]
     void CmdShoot(Vector3 origin, Vector3 direction, int teamId, Color teamColor)
     {
-		if (this.ammo == 0) 
-		{
-			return;
-		}
+        if (this.ammo == 0)
+        {
+            this.cantShotAudio.Play();
+            return;
+        }
 
-		this.ammo--;
+        this.ammo--;
 
         RaycastHit hit;
 
@@ -79,13 +126,13 @@ public class Shooting : NetworkBehaviour
         {
             // shot has hit something
             this.RpcProcessShotEffects(shotHit, hit.point, teamColor);
-            
-			Shootable shotObj = hit.collider.GetComponent<Shootable>();
-			if (shotObj != null) 
-			{
+
+            Shootable shotObj = hit.collider.GetComponent<Shootable>();
+            if (shotObj != null)
+            {
                 this.gameplayManager.Score(shotObj.teamId, teamId);
-				shotObj.RpcShot(teamId, teamColor);
-			}
+                shotObj.RpcShot(teamId, teamColor);
+            }
         }
         else
         {
@@ -98,5 +145,24 @@ public class Shooting : NetworkBehaviour
     void RpcProcessShotEffects(bool shotHit, Vector3 point, Color color)
     {
         this.shotEffectsManager.PlayShotEffects(this.weaponEnd.position, point, color);
+    }
+
+    void ReloadWeapon()
+    {
+        int tmp = this.maxAmmo - this.ammo;
+
+        if (this.reloadAmmo >= tmp)
+        {
+            this.ammo = this.maxAmmo;
+            this.reloadAmmo -= tmp;
+        }
+        else
+        {
+            this.ammo += this.reloadAmmo;
+            this.reloadAmmo = 0;
+        }
+
+        this.reloading = false;
+        this.shotEnabled = true;
     }
 }
