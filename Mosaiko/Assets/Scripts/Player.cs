@@ -23,10 +23,13 @@ public class Player : NetworkBehaviour
     [SyncVar]
     public Color teamColor;
 
+    NetworkAnimator anim;
+
     // Use this for initialization
     void Start()
     {
         this.mainCamera = Camera.main.gameObject;
+        this.anim = this.GetComponent<NetworkAnimator>();
 
         this.EnablePlayer();
     }
@@ -34,7 +37,13 @@ public class Player : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!this.isLocalPlayer)
+        {
+            return;
+        }
+
+        anim.animator.SetFloat("Speed", Input.GetAxis("Vertical"));
+        anim.animator.SetFloat("Strafe", Input.GetAxis("Horizontal"));
     }
 
     void DisablePlayer()
