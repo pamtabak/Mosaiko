@@ -42,8 +42,11 @@ public class Shooting : NetworkBehaviour
     private float ellapsedTime;
     private bool shotEnabled;
 
+    [SyncVar]
     private int reloadAmmo;
+    [SyncVar]
     private int ammo;
+
     private bool reloading;
 
     // Use this for initialization
@@ -78,7 +81,7 @@ public class Shooting : NetworkBehaviour
 
             Player player = this.GetComponentInParent<Player>();
 
-            this.CmdShoot(this.firePosition.position, this.firePosition.forward, player.teamId, player.teamColor);
+            this.CmdShoot(this.firePosition.position, this.firePosition.forward, player.teamId, player.teamColor, this.ammo);
         }
 
         if (Input.GetKeyDown(KeyCode.R) && !this.reloading && this.ammo < this.maxAmmo)
@@ -105,8 +108,10 @@ public class Shooting : NetworkBehaviour
     }
 
     [Command]
-    void CmdShoot(Vector3 origin, Vector3 direction, int teamId, Color teamColor)
+    void CmdShoot(Vector3 origin, Vector3 direction, int teamId, Color teamColor, int ammo)
     {
+        this.ammo = ammo;
+
         if (this.ammo == 0)
         {
             this.cantShotAudio.Play();
