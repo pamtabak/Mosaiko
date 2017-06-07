@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Utils;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -13,6 +14,12 @@ public class ScoreSliderController : MonoBehaviour
     Image teamTwoScore;
 
     private GameplayManager gameplayManager;
+
+    private void Start()
+    {
+        this.teamOneScore.color = TeamColors.TEAM_ONE_COLOR;
+        this.teamTwoScore.color = TeamColors.TEAM_TWO_COLOR;
+    }
 
     private void Update()
     {
