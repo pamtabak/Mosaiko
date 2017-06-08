@@ -133,6 +133,21 @@ public class Shooting : NetworkBehaviour
             this.RpcProcessShotEffects(shotHit, hit.point, teamColor);
 
             Shootable shotObj = hit.collider.GetComponent<Shootable>();
+            var test = hit.point;
+            Player shotPlayer = hit.collider.GetComponent<Player>();
+
+            if (shotPlayer != null)
+            {
+                // shooting a player
+                if (hit.point.y >= 1.4 && hit.point.y <= 1.8)
+                {
+                    // headshot
+                    shotPlayer.RpcHeadshotEffects(1, Color.black);
+                }
+                
+            }
+
+
             if (shotObj != null)
             {
                 this.gameplayManager.Score(shotObj.teamId, teamId);

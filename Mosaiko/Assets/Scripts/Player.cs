@@ -25,6 +25,9 @@ public class Player : NetworkBehaviour
 
     NetworkAnimator anim;
 
+    // hit properties
+    [SerializeField] AudioSource flashbangAudio;
+
     // Use this for initialization
     void Start()
     {
@@ -77,7 +80,16 @@ public class Player : NetworkBehaviour
         }
     }
 
-	[ClientRpc]
+    [ClientRpc]
+    public void RpcHeadshotEffects(int teamId, Color color)
+    {
+        if (this.flashbangAudio.isPlaying)
+            this.flashbangAudio.volume = 1;
+        else
+            this.StartCoroutine(AudioFadeOut.PlayFadeOut(this.flashbangAudio, 15f));
+    }
+
+    [ClientRpc]
 	public void RpcGameOver (int winnerTeam)
 	{
 		Debug.Log ("GameOver");
