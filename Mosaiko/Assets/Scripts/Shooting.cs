@@ -142,7 +142,7 @@ public class Shooting : NetworkBehaviour
                 if (topOfHeadMinusHitY >= 0f && topOfHeadMinusHitY <= 0.5f)
                 {
                     // headshot
-                    shotPlayer.RpcHeadshotEffects(Color.white);
+                    shotPlayer.RpcHeadshotEffects(teamColor);
                     Debug.Log("HEADSHOT!");
                 }
                 shotPlayer.RpcTookShotEffects();
