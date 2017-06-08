@@ -187,4 +187,11 @@ public class Shooting : NetworkBehaviour
         this.reloading = false;
         this.shotEnabled = true;
     }
+
+    public void GetAmmoFromGround(int ammoGained)
+    {
+        this.reloadAmmo += ammoGained;
+        if (this.reloadAmmo > this.maxReloadAmmo)
+            this.reloadAmmo = this.maxReloadAmmo;
+    }
 }

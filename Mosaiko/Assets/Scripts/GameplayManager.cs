@@ -16,6 +16,12 @@ public class GameplayManager : NetworkBehaviour
     public int timer = -1;
     private bool timeAlreadyStarted = false;
 
+    [SerializeField]
+    AudioSource gameMusic;
+
+    [SerializeField]
+    AudioSource ammoSpawnedAudio;
+
     [Server]
     public void Score(int oldTeamId, int newTeamId)
     {
@@ -82,6 +88,16 @@ public class GameplayManager : NetworkBehaviour
         if (this.timer != 0)
         {
             this.timer--;
+            if (this.timer % 30 == 0)
+            {
+                if (GameObject.FindGameObjectWithTag("AmmoSpawn") == null)
+                {
+                    Debug.Log("Spawn ammo!");
+                    GameObject ammoSpawn = (GameObject)Instantiate(Resources.Load("Prefabs/AmmoSpawn"));
+                    NetworkServer.Spawn(ammoSpawn);
+                    this.RpcAmmoSpawnedEffects();
+                }
+            }
         }
         else
         {
@@ -104,5 +120,11 @@ public class GameplayManager : NetworkBehaviour
 			}
 			CancelInvoke("CmdUpdateTimer");
         }
+    }
+
+    [ClientRpc]
+    public void RpcAmmoSpawnedEffects()
+    {
+        this.ammoSpawnedAudio.Play();
     }
 }
