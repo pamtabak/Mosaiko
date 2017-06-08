@@ -17,7 +17,6 @@ namespace Assets.Scripts.Utils
             while (audioSource.volume > 0)
             {
                 audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
-                Debug.Log(audioSource.volume);
 
                 yield return null;
             }

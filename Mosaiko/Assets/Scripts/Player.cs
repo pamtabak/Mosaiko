@@ -3,6 +3,8 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 
 using Assets.Scripts.Utils;
+using System.Threading;
+using System.Collections;
 
 public class Player : NetworkBehaviour
 {
@@ -27,6 +29,7 @@ public class Player : NetworkBehaviour
 
     // hit properties
     [SerializeField] AudioSource flashbangAudio;
+    [SerializeField] AudioSource tookShotAudio;
 
     // Use this for initialization
     void Start()
@@ -81,12 +84,39 @@ public class Player : NetworkBehaviour
     }
 
     [ClientRpc]
-    public void RpcHeadshotEffects(int teamId, Color color)
+    public void RpcTookShotEffects()
     {
+        if (!this.isLocalPlayer)
+            return;
+
+        this.tookShotAudio.Play();
+    }
+
+    [ClientRpc]
+    public void RpcHeadshotEffects(Color color)
+    {
+        if (!this.isLocalPlayer)
+            return;
+
         if (this.flashbangAudio.isPlaying)
             this.flashbangAudio.volume = 1;
         else
-            this.StartCoroutine(AudioFadeOut.PlayFadeOut(this.flashbangAudio, 15f));
+            this.StartCoroutine(AudioFadeOut.PlayFadeOut(this.flashbangAudio, 10f));
+        this.StartCoroutine(this.FlashScreen(color));
+    }
+
+    private IEnumerator FlashScreen(Color color)
+    {
+        GameObject flashbang = GameObject.FindGameObjectWithTag("Flashbang");
+        RawImage flashbangImage = flashbang.GetComponent<RawImage>();
+        if (flashbangImage != null)
+        {
+            DestroyImmediate(flashbangImage);
+        }
+        flashbangImage = flashbang.AddComponent<RawImage>();
+        flashbangImage.color = color;
+        yield return new WaitForSeconds(1f);
+        flashbangImage.CrossFadeAlpha(0, 9f, true);
     }
 
     [ClientRpc]

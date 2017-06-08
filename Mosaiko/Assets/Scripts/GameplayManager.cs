@@ -51,6 +51,20 @@ public class GameplayManager : NetworkBehaviour
     }
 
     [Server]
+    public void ScoreShotPlayer(int teamId, int points)
+    {
+        switch (teamId)
+        {
+            case 1:
+                this.teamOneScore += points;
+                break;
+            case 2:
+                this.teamTwoScore += points;
+                break;
+        }
+    }
+
+    [Server]
     public void StartTimer()
     {
         this.timer = 150;
