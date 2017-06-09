@@ -190,6 +190,9 @@ public class Shooting : NetworkBehaviour
 
     public void GetAmmoFromGround(int ammoGained)
     {
+        if (!this.isLocalPlayer)
+            return;
+
         this.reloadAmmo += ammoGained;
         if (this.reloadAmmo > this.maxReloadAmmo)
             this.reloadAmmo = this.maxReloadAmmo;
