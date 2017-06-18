@@ -11,7 +11,7 @@ public class Ground : NetworkBehaviour
 
     void CreateGrid()
     {
-        Vector3 groundDimensions = this.GetComponent<Collider>().bounds.size;
+        Vector3 groundDimensions    = this.GetComponent<Collider>().bounds.size;
         Vector3 gridCenarioPosition = GameObject.FindGameObjectWithTag("GridCenario").transform.position;
 
         float y = Mathf.Ceil(gridCenarioPosition.y * 100) / 100;
