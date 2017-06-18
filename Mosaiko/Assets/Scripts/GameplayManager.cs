@@ -73,6 +73,10 @@ public class GameplayManager : NetworkBehaviour
     [Server]
     public void StartTimer()
     {
+		GameObject timerObject   = GameObject.FindGameObjectWithTag ("Timer");
+		Vector3    timerPosition = new Vector3 ((float)(Camera.main.pixelWidth/2) , (float) (Camera.main.pixelHeight/2), (float) 0);
+		timerObject.transform.position = timerPosition;
+
         this.timer = 150;
         if (this.timeAlreadyStarted)
         {
