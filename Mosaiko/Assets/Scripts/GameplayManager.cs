@@ -25,10 +25,10 @@ public class GameplayManager : NetworkBehaviour
 
 	public void Start ()
 	{
-		Resolution resolution = Screen.currentResolution;
+		//Resolution resolution = Screen.currentResolution;
 
-		GameObject.FindGameObjectWithTag ("PlayerCanvas").GetComponent<CanvasScaler> ().referenceResolution = new Vector2 (resolution.width, resolution.height);
-		GameObject.FindGameObjectWithTag("Interface").GetComponent<RawImage>().rectTransform.sizeDelta      = new Vector2 (resolution.width, resolution.height);
+		//GameObject.FindGameObjectWithTag ("PlayerCanvas").GetComponent<CanvasScaler> ().referenceResolution = new Vector2 (resolution.width, resolution.height);
+		//GameObject.FindGameObjectWithTag("Interface").GetComponent<RawImage>().rectTransform.sizeDelta      = new Vector2 (resolution.width, resolution.height);
 	}
 
     [Server]
