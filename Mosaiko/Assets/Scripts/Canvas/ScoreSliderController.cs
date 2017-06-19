@@ -17,6 +17,10 @@ public class ScoreSliderController : MonoBehaviour
 
     private void Start()
     {
+//		GameObject scoreSliderObject         = GameObject.FindGameObjectWithTag ("ScoreSlider");
+//		Vector3    scoreSliderPosition       = new Vector3 ((float)(Camera.main.pixelWidth * 0.47) , (float) (Camera.main.pixelHeight * 0.60), (float) 0);
+//		scoreSliderObject.transform.position = scoreSliderPosition;
+
         this.teamOneScore.color = TeamColors.TEAM_ONE_COLOR;
         this.teamTwoScore.color = TeamColors.TEAM_TWO_COLOR;
     }

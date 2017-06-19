@@ -52,5 +52,4 @@ public class ServerManager : NetworkManager
 
         return new Vector3(0, 0, 0);
     }
-
 }

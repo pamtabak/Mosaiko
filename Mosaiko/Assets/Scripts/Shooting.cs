@@ -56,13 +56,12 @@ public class Shooting : NetworkBehaviour
         {
             this.shotEnabled = true;
 
-            this.ammo = this.maxAmmo;
+            this.ammo       = this.maxAmmo;
             this.reloadAmmo = this.maxReloadAmmo;
         }
 
         this.gameplayManager = GameObject.FindGameObjectWithTag("GameplayManager").GetComponent<GameplayManager>();
-
-        this.ammoUI = GameObject.FindGameObjectWithTag("Ammo").GetComponent<Text>();
+        this.ammoUI          = GameObject.FindGameObjectWithTag("Ammo").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -86,7 +85,7 @@ public class Shooting : NetworkBehaviour
 
         if (Input.GetKeyDown(KeyCode.R) && !this.reloading && this.ammo < this.maxAmmo)
         {
-            this.reloading = true;
+            this.reloading   = true;
             this.shotEnabled = false;
 
 
@@ -98,7 +97,7 @@ public class Shooting : NetworkBehaviour
             else
             {
                 this.cantShotAudio.Play();
-                this.reloading = false;
+                this.reloading   = false;
                 this.shotEnabled = true;
             }
         }
@@ -175,16 +174,16 @@ public class Shooting : NetworkBehaviour
 
         if (this.reloadAmmo >= tmp)
         {
-            this.ammo = this.maxAmmo;
+            this.ammo        = this.maxAmmo;
             this.reloadAmmo -= tmp;
         }
         else
         {
-            this.ammo += this.reloadAmmo;
+            this.ammo      += this.reloadAmmo;
             this.reloadAmmo = 0;
         }
 
-        this.reloading = false;
+        this.reloading   = false;
         this.shotEnabled = true;
     }
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class GameplayManager : NetworkBehaviour
 {
@@ -21,6 +22,14 @@ public class GameplayManager : NetworkBehaviour
 
     [SerializeField]
     AudioSource ammoSpawnedAudio;
+
+	public void Start ()
+	{
+		Resolution resolution = Screen.currentResolution;
+
+		GameObject.FindGameObjectWithTag ("PlayerCanvas").GetComponent<CanvasScaler> ().referenceResolution = new Vector2 (resolution.width, resolution.height);
+		GameObject.FindGameObjectWithTag("Interface").GetComponent<RawImage>().rectTransform.sizeDelta      = new Vector2 (resolution.width, resolution.height);
+	}
 
     [Server]
     public void Score(int oldTeamId, int newTeamId)
@@ -73,10 +82,6 @@ public class GameplayManager : NetworkBehaviour
     [Server]
     public void StartTimer()
     {
-		GameObject timerObject   = GameObject.FindGameObjectWithTag ("Timer");
-		Vector3    timerPosition = new Vector3 ((float)(Camera.main.pixelWidth/2) , (float) (Camera.main.pixelHeight/2), (float) 0);
-		timerObject.transform.position = timerPosition;
-
         this.timer = 150;
         if (this.timeAlreadyStarted)
         {

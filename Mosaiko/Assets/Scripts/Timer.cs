@@ -23,7 +23,6 @@ public class Timer : NetworkBehaviour
 
 	void UpdateTimer ()
 	{
-		// WE CHECK HERE IF THE GAME IS OVER!!!!!
 		this.dateTime = dateTime.AddSeconds (-1);
 	}
 }

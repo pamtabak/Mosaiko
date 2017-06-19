@@ -35,8 +35,7 @@ public class Player : NetworkBehaviour
     void Start()
     {
         this.mainCamera = Camera.main.gameObject;
-        this.anim = this.GetComponent<NetworkAnimator>();
-
+        this.anim       = this.GetComponent<NetworkAnimator>();
 
         this.EnablePlayer();
     }
@@ -49,7 +48,7 @@ public class Player : NetworkBehaviour
             return;
         }
 
-        anim.animator.SetFloat("Speed", Input.GetAxis("Vertical"));
+        anim.animator.SetFloat("Speed",  Input.GetAxis("Vertical"));
         anim.animator.SetFloat("Strafe", Input.GetAxis("Horizontal"));
     }
 
