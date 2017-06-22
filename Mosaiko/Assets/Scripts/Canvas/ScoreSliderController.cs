@@ -13,14 +13,16 @@ public class ScoreSliderController : MonoBehaviour
     [SerializeField]
     Image teamTwoScore;
 
+    [SerializeField]
+    Text teamOneScorePoints;
+
+    [SerializeField]
+    Text teamTwoScorePoints;
+
     private GameplayManager gameplayManager;
 
     private void Start()
     {
-//		GameObject scoreSliderObject         = GameObject.FindGameObjectWithTag ("ScoreSlider");
-//		Vector3    scoreSliderPosition       = new Vector3 ((float)(Camera.main.pixelWidth * 0.47) , (float) (Camera.main.pixelHeight * 0.60), (float) 0);
-//		scoreSliderObject.transform.position = scoreSliderPosition;
-
         this.teamOneScore.color = TeamColors.TEAM_ONE_COLOR;
         this.teamTwoScore.color = TeamColors.TEAM_TWO_COLOR;
     }
@@ -36,6 +38,9 @@ public class ScoreSliderController : MonoBehaviour
         {
             this.gameplayManager = GameObject.FindGameObjectWithTag("GameplayManager").GetComponent<GameplayManager>();
         }
+
+        this.teamOneScorePoints.text = this.gameplayManager.teamOneScore.ToString();
+        this.teamTwoScorePoints.text = this.gameplayManager.teamTwoScore.ToString();
 
         if (this.gameplayManager.teamOneScore + this.gameplayManager.teamTwoScore == 0)
         {
