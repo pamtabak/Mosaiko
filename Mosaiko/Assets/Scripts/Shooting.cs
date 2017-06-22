@@ -60,13 +60,32 @@ public class Shooting : NetworkBehaviour
             this.reloadAmmo = this.maxReloadAmmo;
         }
 
-        this.gameplayManager = GameObject.FindGameObjectWithTag("GameplayManager").GetComponent<GameplayManager>();
-        this.ammoUI          = GameObject.FindGameObjectWithTag("Ammo").GetComponent<Text>();
+        if (GameObject.FindGameObjectWithTag("GameplayManager") && GameObject.FindGameObjectWithTag("Ammo"))
+        {
+            this.gameplayManager = GameObject.FindGameObjectWithTag("GameplayManager").GetComponent<GameplayManager>();
+            this.ammoUI = GameObject.FindGameObjectWithTag("Ammo").GetComponent<Text>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (this.gameplayManager == null)
+        {
+            if (GameObject.FindGameObjectWithTag("GameplayManager"))
+            {
+                this.gameplayManager = GameObject.FindGameObjectWithTag("GameplayManager").GetComponent<GameplayManager>();
+            }
+        }
+
+        if (this.ammoUI == null)
+        {
+            if (GameObject.FindGameObjectWithTag("Ammo"))
+            {
+                this.ammoUI = GameObject.FindGameObjectWithTag("Ammo").GetComponent<Text>();
+            }
+        }
+
         if (!this.shotEnabled)
         {
             return;
@@ -103,7 +122,8 @@ public class Shooting : NetworkBehaviour
         }
 
         // refreshes ammoUI
-        this.ammoUI.text = string.Format("{0}/{1}", this.ammo, this.reloadAmmo);
+        if (this.ammoUI)
+            this.ammoUI.text = string.Format("{0}/{1}", this.ammo, this.reloadAmmo);
     }
 
     [Command]

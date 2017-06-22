@@ -19,10 +19,13 @@ public class Player : NetworkBehaviour
 
     GameObject mainCamera;
 
-    [SyncVar]
+    [SyncVar(hook = "OnPlayerNameChange")]
+    public string playerName;
+
+    [SyncVar(hook = "OnTeamIdChange")]
     public int teamId;
 
-    [SyncVar]
+    [SyncVar(hook = "OnTeamColorChange")]
     public Color teamColor;
 
     NetworkAnimator anim;
@@ -144,4 +147,21 @@ public class Player : NetworkBehaviour
 			text.text  = "you lose";
 		}
 	}
+
+    void OnPlayerNameChange(string value)
+    {
+        this.playerName = value;
+        this.gameObject.name = value;
+        //set text
+    }
+
+    void OnTeamIdChange(int value)
+    {
+        this.teamId = value;
+    }
+
+    void OnTeamColorChange(Color value)
+    {
+        this.teamColor = value;
+    }
 }
