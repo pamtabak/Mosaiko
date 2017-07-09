@@ -131,20 +131,18 @@ public class Player : NetworkBehaviour
 		GameObject gameOverObject = GameObject.FindGameObjectWithTag ("GameOver");
 		Text       text           = (Text) gameOverObject.GetComponent<Text> ();
 
-		if (winnerTeam == 0) 
+		if (this.isLocalPlayer)
 		{
-			// it`s a tie
-			text.text  = "tie";
-		}
-		else if (winnerTeam == teamId) 
-		{
-			// you win
-			text.text  = "you win";
-		} 
-		else 
-		{
-			// you lose
-			text.text  = "you lose";
+			if (winnerTeam == 0) {
+				// it`s a tie
+				text.text = "tie";
+			} else if (winnerTeam == teamId) {
+				// you win
+				text.text = "you win";
+			} else {
+				// you lose
+				text.text = "you lose";
+			}
 		}
 	}
 
